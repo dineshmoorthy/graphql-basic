@@ -1,6 +1,9 @@
 type Query {
     customerName: String,
     bookById(id: ID): Book
+    clientAddress(primaryAddress:String!): ClientAddress!
+    clientAddressList: [ClientAddress]
+    clientDetails(name:String!):ClientDetails
 }
 
 type Book {
@@ -14,4 +17,15 @@ type Author {
     id: ID
     firstName: String
     lastName: String
+}
+
+type ClientAddress{
+    primaryAddress: String,
+    secondaryAddress: String
+}
+type ClientDetails{
+    id: ID!
+    name: String!
+    emailAddress: String
+    address: ClientAddress!
 }
